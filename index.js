@@ -6,6 +6,7 @@ const debounce = (func, delay) => {
     return function() {
         const context = this
         const args = arguments
+        suggestion.textContent = '' // avoid appearing old suggestion
         clearTimeout(inDebounce)
         inDebounce = setTimeout(() => func.apply(context, args), delay)
     }
