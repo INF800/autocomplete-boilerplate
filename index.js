@@ -1,13 +1,22 @@
 const input = document.getElementById("input")
 const suggestion = document.getElementById("suggestion")
 
+const debounce = (func, delay) => {
+    let inDebounce
+    return function() {
+        const context = this
+        const args = arguments
+        clearTimeout(inDebounce)
+        inDebounce = setTimeout(() => func.apply(context, args), delay)
+    }
+}
 
-input.addEventListener('input', e => {
-    console.log("hii")
+input.addEventListener('input', debounce((e)=>{
     const inputVal = e.target.textContent 
     const suggest = " This was suggested"
     suggestion.textContent = inputVal + suggest
-});
+}, 250))
+
 
 input.addEventListener('keydown', e => {
     if(e.key === 'ArrowRight') {
@@ -17,7 +26,7 @@ input.addEventListener('keydown', e => {
         suggestion.textContent = ''; // clear ghost 
         input.textContent = ghost; // replace input with suggestion
         
-        
+        // moves cursor to the end of the input box
         setEndOfContenteditable(input);
         } 
     }
@@ -26,7 +35,7 @@ input.addEventListener('keydown', e => {
 
 
 // ------------------------------------------------------------
-// Helper function
+// Helper function(s)
 // ------------------------------------------------------------
 // moves cursor to the end of the input box
 function setEndOfContenteditable(contentEditableElement)
