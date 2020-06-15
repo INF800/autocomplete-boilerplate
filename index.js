@@ -15,7 +15,7 @@ input.addEventListener('input', debounce((e)=>{
     const inputVal = e.target.textContent 
     const suggest = " This was suggested"
     suggestion.textContent = inputVal + suggest
-}, 250))
+}, 750))
 
 
 input.addEventListener('keydown', e => {
