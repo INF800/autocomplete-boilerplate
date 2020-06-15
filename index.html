@@ -37,11 +37,11 @@
             And you wont be able to edit it as you can't click on it!!
         */
         width: 100%;
-        height: 100px; 
+        height: 300px; /* Layout issue if excceds ht. Soln is to add wordlimit to input field. */ 
       }
     </style>
 
-    <h2 class="heading">Auto Complete!</h2>
+    <h2 class="heading">I am incomplete without you!</h2>
     
     <div id="suggestion-container">
         <div id="suggestion" style="color: rgba(0, 0, 0, 0.2);">This is the Suggestion with low opacity</div>
@@ -55,9 +55,9 @@
     <script src="index.js">
       /*
       Add event listeners to conteneditable and
-        - copy from `input` innerhtml
-        - append suggestion to `input` and call it `suggest`.
-        - rewrite innerhtml of `suggestion` with `suggest` 
+        - copy from `input` textContent
+        - get suggestion and call it `suggest`.
+        - rewrite textContent of `suggestion` with `inputVal` + `suggest` 
       */
     </script>
 
