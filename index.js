@@ -12,12 +12,13 @@ const debounce = (func, delay) => {
     }
 }
 
-input.addEventListener('input', debounce((e)=>{
-    const inputVal = e.target.textContent 
-    const suggest = " This was suggested"
-    suggestion.textContent = inputVal + suggest
-}, 750))
+input.addEventListener('input', debounce(e=>main(e), 750))
 
+const main = (e) => {
+    const inputVal = e.target.textContent 
+    const suggest = " word 1 word2 word3"
+    suggestion.textContent = inputVal + suggest
+}
 
 input.addEventListener('keydown', e => {
     if(e.key === 'ArrowRight') {
